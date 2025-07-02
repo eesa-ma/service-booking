@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 17</title>
+    <script src="https://kit.fontawesome.com/781c7c7d6c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+
+<body class="mx-10 my-5 bg-gray-200">
+    <header class="flex justify-between bg-white px-10 py-5 rounded-full sticky top-0"
+        style="font-family: 'Dancing Script', cursive;">
+        <div class="font-bold text-2xl text-gray-700 ">Logo</div>
+        <nav>
+            <ul class="flex gap-5 text-gray-500">
+                <li>Home</li>
+                <li>Service</li>
+                <li>Contact Us</li>
+                <li>About Us</li>
+            </ul>
+        </nav>
+        <div class="flex">
+            <div class="text-blue-400 bg-blue-200 px-2 py-1 rounded-l-lg">Username</div>
+            <button class="text-red-400 bg-red-200  px-2 py-1 rounded-r-lg"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+    </header>
+    <main>
+        <div class="flex gap-5 mt-10 text-gray-700">
+            <!-- left section -->
+            <div id="leftSection" class="w-1/2 space-y-5">
+                <div class="bg-white p-5 rounded-2xl    ">
+                    <h1 class="text-xl font-semibold">Added Items</h1>
+                    <table class="w-full text-left ">
+                        <thead>
+                            <tr class="font-semibold border-b">
+                                <th class="py-2 ">S.No</th>
+                                <th class="py-2">Service Name</th>
+                                <th class="py-2">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartItems">
+                            <tr id="noItems">
+                                <td colspan="3" class="text-center py-10 text-gray-400">
+                                    <div class="flex flex-col items-center gap-2">
+                                         <i class="fas fa-info-circle text-3xl"></i>
+                                         <p class="font-semibold">No Items Added</p>
+                                         <p class="text-sm">Add items to the cart from the services bar</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="flex justify-around font-semibold border-t pt-4">
+                        <p>Total Amount</p>
+                        <p id="totalAmount"></p>
+                    </div>
+                </div>
+                <!-- booking form -->
+                <div class=" bg-white p-5 rounded-2xl">
+                    <h1 class="text-xl font-semibold">Book Now</h1>
+                    <form action="" class="flex flex-col gap-4 mx-auto">
+                        <label for="userName" class="font-semibold">Full Name</label>
+                        <input type="text" name="userName" id="userName" class="border rounded px-3 py-2">
+
+                        <div class="flex max-lg:flex-col  gap-4">
+                            <div class="flex flex-col flex-1 gap-1">
+                                <label for="userEmail" class="font-semibold">Email ID</label>
+                                <input type="email" name="userEmail" id="userEmail" class="border rounded px-3 py-2">
+                            </div>
+                            <div class="flex flex-col flex-1 gap-1">
+                                <label for="phoneNumber" class="font-semibold">Phone Number</label>
+                                <input type="tel" name="phoneNumber" id="phoneNumber" class="border rounded px-3 py-2">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-4 rounded-2xl hover:bg-blue-700 ">
+                            Book Now
+                        </button>
+                    </form>
+
+
+                </div>
+            </div>
+            <!-- right section -->
+            <div id="rightSection" class="w-1/2 bg-white rounded-2xl p-5 flex flex-col gap-2">
+                <h1 class="text-2xl font-bold">Browse Our Services</h1>
+                <p class="leading-tight tracking-tight">Click on the add to cart button to add the service to your cart
+                    or press skip</p>
+                <div id="ServiceDisplay"></div>
+                <div id="skipAddButtonDiv" class="flex gap-2">
+                    <button type="submit" id="skipItem"
+                        class="w-1/3 bg-red-200 text-red-600 py-4 rounded-2xl font-semibold">Skip Item <i
+                            class="fa-solid fa-circle-minus"></i></button>
+                    <button type="submit" id="additem"
+                        class="w-2/3 bg-green-200 text-green-600  rounded-2xl font-semibold">Add item <i
+                            class="fa-solid fa-circle-plus"></i></button>
+                </div>
+                <div class="h-0.5 bg-gray-300 mt-5"></div>
+                <p id="addText" class="text-blue-600 mt-5"><i class="fa-solid fa-circle-info"></i>Add items to the cart
+                    and book now</p>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
