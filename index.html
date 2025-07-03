@@ -57,7 +57,7 @@
                     </table>
                     <div class="flex justify-around font-semibold border-t pt-4">
                         <p>Total Amount</p>
-                        <p id="totalAmount"></p>
+                        <p id="totalAmount">$0</p>
                     </div>
                 </div>
                 <!-- booking form -->
@@ -65,22 +65,23 @@
                     <h1 class="text-xl font-semibold">Book Now</h1>
                     <form action="" class="flex flex-col gap-4 mx-auto">
                         <label for="userName" class="font-semibold">Full Name</label>
-                        <input type="text" name="userName" id="userName" class="border rounded px-3 py-2">
+                        <input type="text" name="userName" id="userName" class="border rounded px-3 py-2" required>
 
                         <div class="flex max-lg:flex-col  gap-4">
                             <div class="flex flex-col flex-1 gap-1">
                                 <label for="userEmail" class="font-semibold">Email ID</label>
-                                <input type="email" name="userEmail" id="userEmail" class="border rounded px-3 py-2">
+                                <input type="email" name="userEmail" id="userEmail" class="border rounded px-3 py-2" required>
                             </div>
                             <div class="flex flex-col flex-1 gap-1">
                                 <label for="phoneNumber" class="font-semibold">Phone Number</label>
-                                <input type="tel" name="phoneNumber" id="phoneNumber" class="border rounded px-3 py-2">
+                                <input type="tel" name="phoneNumber" id="phoneNumber" class="border rounded px-3 py-2" required>
                             </div>
                         </div>
 
-                        <button type="submit" class="bg-blue-600 text-white px-4 py-4 rounded-2xl hover:bg-blue-700 ">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-4 rounded-2xl hover:bg-blue-700 " id="bookButton">
                             Book Now
                         </button>
+                        <p class="hidden" id="confirmationMessage"></p>
                     </form>
 
 
