@@ -96,12 +96,13 @@ addButton.addEventListener("click", () => {
         return;
     }
 
-    const hii = document.getElementById("noItems");
-    hii.textContent = "";
+    const initialDisplay = document.getElementById("noItems");
+    initialDisplay.classList.add("hidden");
 
     serialNo++;
 
     const tableRow = document.createElement("tr");
+    tableRow.id = "tablerow";
     const sNo = document.createElement("td");
     const serviceName = document.createElement("td");
     const price = document.createElement("td");
@@ -120,4 +121,67 @@ addButton.addEventListener("click", () => {
 
     totalPrice(services[serviceIndex].price);
     serviceBar();
+});
+
+
+const bookButton = document.getElementById("bookButton");
+
+function checkBookingForm () {
+    const userName = document.getElementById("userName").value.trim();
+    const emailId = document.getElementById("userEmail").value.trim();
+    const PhoneNumber = document.getElementById("phoneNumber").value.trim();
+
+    if(!userName || !emailId || !PhoneNumber) {
+        alert("please fill in all fields");
+        return false;
+    }
+    return true;
+}
+
+function checkAddedService() {
+    if(addedService.length === 0) {
+        alert("Add services");
+        return false;
+    } 
+    return true;
+}
+
+function resetBooking() {
+    document.getElementById("userName").value = "";
+    document.getElementById("userEmail").value = "";
+    document.getElementById("phoneNumber").value = "";
+
+
+    const table = document.getElementById("tablerow");
+    table.innerHTML = "";
+
+    document.getElementById("noItems").classList.remove("hidden");
+
+    totalprice = 0;
+    serialNo = 0;
+    document.getElementById("totalAmount").textContent = "$0";
+
+    addedService.length = 0;
+
+    serviceIndex = 0;
+    ServiceDisplay.innerHTML = "";
+    displayService(serviceIndex);
+
+    document.getElementById("confirmationMessage").classList.add("hidden");
+}
+
+bookButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (!checkAddedService()) return;
+    if (!checkBookingForm()) return;
+
+    // If both checks pass
+    document.getElementById("confirmationMessage").textContent =
+        `Thank you! Your booking has been confirmed.`;
+    document.getElementById("confirmationMessage").classList.remove("hidden");
+
+    setTimeout(() => {
+        resetBooking();
+    },3000);
 });
